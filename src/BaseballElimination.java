@@ -7,6 +7,7 @@ import edu.princeton.cs.algs4.FlowEdge;
 import edu.princeton.cs.algs4.FlowNetwork;
 import edu.princeton.cs.algs4.FordFulkerson;
 import edu.princeton.cs.algs4.LinearProbingHashST;
+import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -105,13 +106,13 @@ public class BaseballElimination
 				gameVertex++;
 			}
 		}
-		Stack<String> certTeams = new Stack<String>();
+		Queue<String> certTeams = new Queue<String>();
 		FordFulkerson ff = new FordFulkerson(fn, s, t);
 		for (int i = 1; i <= n; i++)
 		{
 			if (ff.inCut(i))
 			{
-				certTeams.push(names[i - 1]);
+				certTeams.enqueue(names[i - 1]);
 			}
 		}
 		if (certTeams.size() > 0)
