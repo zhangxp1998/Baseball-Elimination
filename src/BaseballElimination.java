@@ -39,7 +39,7 @@ public class BaseballElimination
 		remain = new int[n];
 		games = new int[n][n];
 		nameMap = new LinearProbingHashST<String, Integer>(n << 1);
-		cert = new Iterable[n];
+		cert = (Iterable<String>[]) (new Iterable[n]);
 
 		for (int i = 0; i < n; i++)
 		{
@@ -52,7 +52,7 @@ public class BaseballElimination
 			{
 				games[i][j] = in.nextInt();
 			}
-			in.nextLine();
+			// in.nextLine();
 		}
 		for (int i = 0; i < n; i++)
 		{
